@@ -1,0 +1,60 @@
+main {
+  padding: 2rem;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+#main-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+#form-section {
+  border: 1px solid gray;
+  padding: 1rem;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+}
+
+.form-field {
+  padding: 0 0 1rem 0;
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+}
+
+.form-field h4 {
+  padding: 0.5rem 0;
+  margin: 0;
+}
+
+#calculate-button {
+  padding: 0.5rem 1rem;
+  margin: 1rem 0;
+}
+
+#details-section {
+  padding: 1rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.details-section-bold {
+  font-weight: bold;
+}
+
+.details-section-header-error {
+  color: red;
+}
+
+.validation-error-message {
+  font-size: small;
+  color: red;
+}

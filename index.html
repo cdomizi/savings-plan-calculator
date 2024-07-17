@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulatore piano di risparmio</title>
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/normalize.css"> <!-- normalize style sheet -->
+  <link rel="stylesheet" href="css/defaults.css"> <!-- basic settings -->
+  <link rel="stylesheet" href="css/styles.css"> <!-- main style sheet -->
+  <!-- JS -->
+  <script type="module" src="./main.js" defer></script>
+</head>
+<body>
+  <main id="main-container">
+    <h1 id="main-header">Simulatore piano di risparmio</h1>
+    <div class="content">
+      <section id="form-section">
+        <form id="calculator-form" name="calculator-form" novalidate>
+          <div class="form-field">
+            <label for="initialDeposit">
+              <h4>Capitale iniziale</h4>
+            </label>
+            <span class="form-field-input">
+              <span class="field-form-prefix">€</span>
+              <input id="initialDeposit" name="initialDeposit" type="number" inputmode="numeric" value="0" required>
+            </span>
+          </div>
+          <div class="form-field">
+            <label for="monthlyContribution">
+              <h4>Contributo mensile*</h4>
+            </label>
+            <span class="form-field-input">
+              <span class="field-form-prefix">€</span>
+              <input id="monthlyContribution" name="monthlyContribution" type="number" inputmode="numeric" placeholder="100" required>
+            </span>
+          </div>
+          <div class="form-field">
+            <label for="goalBalance">
+              <h4>Obiettivo*</h4>
+            </label>
+            <span class="form-field-input">
+              <span class="field-form-prefix">€</span>
+              <input id="goalBalance" name="goalBalance" type="number" inputmode="numeric" placeholder="10000" required>
+            </span>
+          </div>
+          <input type="submit" id="calculate-button" name="calculate-button" value="Calcola">
+          <input type="reset" id="calculate-button" name="calculate-button" value="Reset">
+        </form>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
