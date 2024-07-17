@@ -18,12 +18,12 @@ const createDetailsSectionContainer = () => {
 };
 
 /** Create savings plan details section */
-const createDetailsSection = (date, months) => {
+const createDetailsSection = (date, remainingTerm, months) => {
   const detailsSection = createDetailsSectionContainer();
   
   // Add title
   const heading = document.createElement("h2");
-  heading.setAttribute("id", "details-section-header");
+  heading.setAttribute("class", "details-section-header");
   detailsSection.appendChild(heading);
   heading.textContent += "Dettagli del piano di risparmio";
 
@@ -31,17 +31,27 @@ const createDetailsSection = (date, months) => {
   const endDate = document.createElement("p");
   endDate.setAttribute("id", "end-date");
   detailsSection.appendChild(endDate);
-  endDate.textContent += "Data raggiungimento obiettivo: ";
+  endDate.textContent += "📅 Data raggiungimento obiettivo: ";
   const endDateText = document.createElement("span");
   endDateText.setAttribute("class", "details-section-bold");
   endDate.appendChild(endDateText);
   endDateText.textContent += date;
 
+  // Add plan remaining term
+  const planRemainingTerm = document.createElement("p");
+  planRemainingTerm.setAttribute("id", "plan-total-duration");
+  detailsSection.appendChild(planRemainingTerm);
+  planRemainingTerm.textContent += "⏳ Durata complessiva: ";
+  const planRemainingTermText = document.createElement("span");
+  planRemainingTermText.setAttribute("class", "details-section-bold");
+  planRemainingTerm.appendChild(planRemainingTermText);
+  planRemainingTermText.textContent += remainingTerm;
+
   // Add number of months
   const monthsCount = document.createElement("p");
   monthsCount.setAttribute("id", "months-count");
   detailsSection.appendChild(monthsCount);
-  monthsCount.textContent += "N. mesi/contributi: ";
+  monthsCount.textContent += "💶 N. mesi/contributi: ";
   const monthsCountText = document.createElement("span");
   monthsCountText.setAttribute("class", "details-section-bold");
   monthsCount.appendChild(monthsCountText);
@@ -53,7 +63,7 @@ const createErrorSection = () => {
   const detailsSection = createDetailsSectionContainer();
   
   const heading = document.createElement("h2");
-  heading.setAttribute("id", "details-section-header");
+  heading.setAttribute("class", "details-section-header");
   heading.setAttribute("class", "details-section-header-error");
   detailsSection.appendChild(heading);
   heading.textContent += "Errore: impossibile calcolare il piano";
@@ -61,7 +71,7 @@ const createErrorSection = () => {
   const errorDetail = document.createElement("p");
   errorDetail.setAttribute("id", "details-section-error-detail");
   detailsSection.appendChild(errorDetail);
-  errorDetail.textContent += "Il formato dei dati inseriti non è corretto.";
+  errorDetail.textContent += "Il formato dei dati inseriti non è corretto ❌";
 };
 
 // Show error on invalid form input

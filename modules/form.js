@@ -1,4 +1,7 @@
-import { addMonthsToDate, getMonthsToGoalBalance } from "./calculator.js";
+import { addMonthsToDate,
+  getMonthsToGoalBalance,
+  getRemainingTerm,
+} from "./calculator.js";
 import {
   createDetailsSection,
   createErrorSection,
@@ -6,7 +9,11 @@ import {
   removeFormErrorMessages,
   removeOldDetailsSection,
 } from "./DOM.js";
-import { formatDate } from "./helpers.js";
+import {
+  checkIsPositiveInteger,
+  checkIsPositiveIntegerOrZero,
+  formatDate,
+} from "./helpers.js";
 
 const checkIsFormValid = (event) => {
   // Remove form validation error messages if existing
@@ -28,22 +35,32 @@ const handleFormSubmit = (formPayload) => {
   const date = new Date(Date.now());
   const { goalBalance, monthlyContribution, initialDeposit } = formPayload;
 
-  // Calculate months
-  const months = getMonthsToGoalBalance({
-    goalBalance,
-    monthlyContribution,
-    initialDeposit,
-  });
+  // Validate form payload
+  if (checkIsPositiveInteger(goalBalance)
+      && checkIsPositiveInteger(monthlyContribution)
+      && checkIsPositiveIntegerOrZero(initialDeposit)) {
 
-  // Show error section on data validation error
-  if (isNaN(months)) createErrorSection();
+    // Calculate months
+    const months = getMonthsToGoalBalance({
+      goalBalance,
+      monthlyContribution,
+      initialDeposit,
+    });
 
-  // Calculate date
-  addMonthsToDate(months, date);
-  const formattedDate = formatDate(date);
+    // Calculate plan total duration
+    const remainingTerm = getRemainingTerm(months);
 
-  // Show detail section on success
-  createDetailsSection(formattedDate, months);
+    // Calculate date
+    addMonthsToDate(months, date);
+    const formattedDate = formatDate(date);
+
+    // Show detail section on success
+    createDetailsSection(formattedDate, remainingTerm, months);
+  } else {
+    // Create error section on invalid data
+    createErrorSection();
+  };
+
 };
 
 const onFormSubmit = (event) => {
