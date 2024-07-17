@@ -31,8 +31,23 @@ const formatDate = (date) => {
   return `${capitalizedMonth} ${fullYear}`;
 };
 
+// Returns the parameter if it is positive integer, else returns NaN
+const checkIsPositiveIntegerOrZero = (num) => {
+  num = Number(num);
+
+  return !isNaN(num) && num >= 0;
+};
+
+const checkIsPositiveInteger = (num) => {
+  num = Number(num);
+
+  return checkIsPositiveIntegerOrZero(num) && num > 0;
+};
+
 export {
   capitalize,
   getMonthName,
   formatDate,
+  checkIsPositiveInteger,
+  checkIsPositiveIntegerOrZero,
 };
