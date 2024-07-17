@@ -21,8 +21,8 @@
             <label for="initialDeposit">
               <h4>Capitale iniziale</h4>
             </label>
-            <span class="form-field-input">
-              <span class="field-form-prefix">€</span>
+            <span class="form-input-box">
+              <span class="form-input-prefix">€</span>
               <input id="initialDeposit" name="initialDeposit" type="number" inputmode="numeric" value="0" required>
             </span>
           </div>
@@ -30,22 +30,24 @@
             <label for="monthlyContribution">
               <h4>Contributo mensile*</h4>
             </label>
-            <span class="form-field-input">
-              <span class="field-form-prefix">€</span>
+            <div class="form-input-box">
+              <span class="form-input-prefix">€</span>
               <input id="monthlyContribution" name="monthlyContribution" type="number" inputmode="numeric" placeholder="100" required>
-            </span>
+            </div>
           </div>
           <div class="form-field">
             <label for="goalBalance">
               <h4>Obiettivo*</h4>
             </label>
-            <span class="form-field-input">
-              <span class="field-form-prefix">€</span>
+            <span class="form-input-box">
+              <span class="form-input-prefix">€</span>
               <input id="goalBalance" name="goalBalance" type="number" inputmode="numeric" placeholder="10000" required>
             </span>
           </div>
-          <input type="submit" id="calculate-button" name="calculate-button" value="Calcola">
-          <input type="reset" id="calculate-button" name="calculate-button" value="Reset">
+          <div id="form-buttons">
+            <input type="submit" class="form-button" id="calculate-button" name="calculate-button" value="Calcola">
+            <input type="reset" class="form-button" id="reset-button" name="reset-button" value="Reset">
+          </div>
         </form>
       </section>
     </div>

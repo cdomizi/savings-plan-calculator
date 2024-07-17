@@ -74,12 +74,13 @@ const highlightInvalidInput = (event) => {
 
       const input = document.querySelector(`input[id='${field}']`);
       if (!input.checkValidity()) {
-        input.parentNode.appendChild(
-          Object.assign(document.createElement("p"), {
+        input.closest(".form-field").appendChild(
+          Object.assign(document.createElement("span"), {
             className: "validation-error-message",
             textContent: input.validationMessage,
           }),
         );
+        input.parentNode.style.border = "1px solid red";
       }
     }
   };
@@ -90,9 +91,16 @@ const removeFormErrorMessages = () => {
     document.querySelectorAll(".validation-error-message");
 
   if (validationErrorMessages) {
-    validationErrorMessages.forEach(e => e.remove());
-  };
-}
+    // Remove error messages
+    validationErrorMessages.forEach((element) => element.remove());
+
+    // Reset input border color
+    document.querySelectorAll(".form-field input").forEach((element) => {
+      element.parentNode.style.border = "1px solid lightgray";
+    });
+  }
+
+};
 
 export {
   createDetailsSection,
