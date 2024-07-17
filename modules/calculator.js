@@ -11,18 +11,29 @@ const getMonthsToGoalBalance = ({
   monthlyContribution,
   initialDeposit = 0
 }) => {
-  // Validate form values
-  goalBalance = Number(goalBalance);
-  monthlyContribution = Number(monthlyContribution);
-  initialDeposit = Number(initialDeposit);
-
-  // Calculate number of months
   const months = Math.ceil(goalBalance / monthlyContribution) - initialDeposit;
 
   return months;
 };
 
+// Get the remmaining term to goal balance in years, months
+const getRemainingTerm = (monthsNumber) => {
+  const yearsCount = Math.floor(monthsNumber / 12);
+  const years = yearsCount > 1 ? "anni" : "anno";
+  const formatYears = yearsCount ? `${yearsCount} ${years}` : "";
+
+  const monthsCount = monthsNumber % 12;
+  const months = monthsCount > 1 ? "mesi" : "mese";
+  const formatMonths = monthsCount ? `${monthsCount} ${months}` : "";
+
+  const separator = formatYears && formatMonths && ", ";
+  const remainingTerm = `${formatYears}${separator}${formatMonths}`;
+
+  return remainingTerm;
+};
+
 export {
   addMonthsToDate,
   getMonthsToGoalBalance,
+  getRemainingTerm,
 };
