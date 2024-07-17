@@ -86,12 +86,23 @@ main {
   width: fit-content;
 }
 
-.details-section-bold {
-  font-weight: bold;
+.details-section-header {
+  color: gray;
+  padding-bottom: 1rem;
+  font-weight: normal;
 }
 
 .details-section-header-error {
   color: red;
+}
+
+.details-section-bold {
+  font-weight: bold;
+  font-size: larger;
+}
+
+#details-section p {
+  margin: 1.5rem auto;
 }
 
 .validation-error-message {
