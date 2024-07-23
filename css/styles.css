@@ -11,12 +11,13 @@
 main {
   padding: 2rem;
   margin: auto;
-  max-width: 1000px;
+  max-width: 900px;
 }
 
 .content {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 1.8rem;
 }
 
@@ -31,16 +32,13 @@ main {
   padding: 1.2rem 2rem;
   margin: auto;
   box-shadow: 0.1rem 0.1rem 0.1rem 0rem var(--shadow-light);
-  display: flex;
-  justify-content: center;
-  width: 100%;
 }
 
 .form-field {
   padding: 0 0 1rem 0;
   display: flex;
   flex-direction: column;
-  max-width: 600px;
+  max-width: 250px;
 }
 
 .form-field h4 {
@@ -105,9 +103,10 @@ main {
   .content {
     flex-direction: row;
     flex-wrap: nowrap;
+    justify-content: inherit;
   }
 
-  #form-section {
+  #form-section, #details-section {
     margin: 0;
     display: block;
     width: inherit;
