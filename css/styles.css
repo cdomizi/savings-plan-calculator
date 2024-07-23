@@ -49,6 +49,7 @@ main {
 .form-input-box {
   display: inline-block;
   white-space: nowrap;
+  overflow: hidden;
   border: 1px solid var(--secondary-light);
   border-radius: 0.4rem;
   box-shadow: 0.1rem 0.1rem 0.1rem 0rem var(--shadow-light);
@@ -62,6 +63,7 @@ main {
 
 .form-input-prefix {
   padding: 0 0.8rem;
+  overflow: inherit;
   color: var(--secondary-dark);
 }
 
