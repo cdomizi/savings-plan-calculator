@@ -56,6 +56,11 @@ const handleFormSubmit = (formPayload) => {
 
     // Show detail section on success
     createDetailsSection(formattedDate, remainingTerm, months);
+
+    // Blur all form inputs (keyboard disappears on mobile)
+    Array.from(document.querySelectorAll('input')).forEach((el) => {
+      el.blur();
+    });
   } else {
     // Create error section on invalid data
     createErrorSection();
