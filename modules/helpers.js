@@ -45,9 +45,6 @@ const checkIsPositiveInteger = (num) => {
 };
 
 export {
-  capitalize,
-  getMonthName,
-  formatDate,
-  checkIsPositiveInteger,
-  checkIsPositiveIntegerOrZero,
+  capitalize, checkIsPositiveInteger,
+  checkIsPositiveIntegerOrZero, formatDate, getMonthName
 };

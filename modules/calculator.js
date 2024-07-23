@@ -35,5 +35,5 @@ const getRemainingTerm = (monthsNumber) => {
 export {
   addMonthsToDate,
   getMonthsToGoalBalance,
-  getRemainingTerm,
+  getRemainingTerm
 };

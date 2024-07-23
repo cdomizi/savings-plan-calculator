@@ -1,5 +1,3 @@
-const contentDiv = document.querySelector(".content");
-
 /** Remove old saving plan details section */
 const removeOldDetailsSection = () => {
   const detailsSection = document.querySelector("#details-section");

@@ -1,4 +1,5 @@
-import { addMonthsToDate,
+import {
+  addMonthsToDate,
   getMonthsToGoalBalance,
   getRemainingTerm,
 } from "./calculator.js";
@@ -92,4 +93,5 @@ const onFormReset = () => {
   removeOldDetailsSection();
 };
 
-export { onFormSubmit, onFormReset };
+export { onFormReset, onFormSubmit };
+
