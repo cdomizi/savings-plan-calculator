@@ -6,6 +6,14 @@
 
 body {
   margin: 0px;
+  background-color: #fafafa;
+  color: #363636;
+  line-height: 1.6;
+  font-size: 18px;
+}
+
+h1, h2, h3 {
+  line-height: 1.2;
 }
 
 /* Main container */

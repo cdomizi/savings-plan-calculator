@@ -2,24 +2,16 @@ const contentDiv = document.querySelector(".content");
 
 /** Remove old saving plan details section */
 const removeOldDetailsSection = () => {
-  const oldDetailsSection = document.querySelector("#details-section");
-  if (oldDetailsSection) contentDiv.removeChild(oldDetailsSection);
-};
-
-const createDetailsSectionContainer = () => {
-  // Remove old details section before creating a new one
-  removeOldDetailsSection();
-  
-  const detailsSection = document.createElement("section");
-  detailsSection.setAttribute("id", "details-section");
-  contentDiv.appendChild(detailsSection);
-
-  return detailsSection;
+  const detailsSection = document.querySelector("#details-section");
+  detailsSection.replaceChildren();
 };
 
 /** Create savings plan details section */
 const createDetailsSection = (date, remainingTerm, months) => {
-  const detailsSection = createDetailsSectionContainer();
+  // Remove old details section before creating a new one
+  removeOldDetailsSection();
+
+  const detailsSection = document.querySelector("#details-section");
   
   // Add title
   const heading = document.createElement("h2");
@@ -60,7 +52,10 @@ const createDetailsSection = (date, remainingTerm, months) => {
 
 // Display error in the details section
 const createErrorSection = () => {
-  const detailsSection = createDetailsSectionContainer();
+  // Remove old details section before creating a new one
+  removeOldDetailsSection();
+
+  const detailsSection = document.querySelector("#details-section");
   
   const heading = document.createElement("h2");
   heading.setAttribute("class", "details-section-header");
@@ -71,7 +66,7 @@ const createErrorSection = () => {
   const errorDetail = document.createElement("p");
   errorDetail.setAttribute("id", "details-section-error-detail");
   detailsSection.appendChild(errorDetail);
-  errorDetail.textContent += "Il formato dei dati inseriti non è corretto ❌";
+  errorDetail.textContent += "❌ Il formato dei dati inseriti non è corretto";
 };
 
 // Show error on invalid form input

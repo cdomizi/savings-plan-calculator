@@ -61,6 +61,10 @@ const handleFormSubmit = (formPayload) => {
     createErrorSection();
   };
 
+  // Scroll to details section
+  document.querySelector("#details-section").scrollIntoView({
+    behavior: "smooth"
+  });
 };
 
 const onFormSubmit = (event) => {
