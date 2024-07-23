@@ -30,10 +30,10 @@ main {
   border-radius: 0.4rem;
   padding: 1.2rem 2rem;
   margin: auto;
-  max-width: -webkit-fit-content;
-  max-width: -moz-fit-content;
-  max-width: fit-content;
   box-shadow: 0.1rem 0.1rem 0.1rem 0rem var(--shadow-light);
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .form-field {
@@ -109,6 +109,8 @@ main {
 
   #form-section {
     margin: 0;
+    display: block;
+    width: inherit;
   }
 }
 
