@@ -56,7 +56,7 @@ main {
 }
 
 .form-field input {
-  flex-grow: 1;
+  /* flex-grow: 1; */
   padding: 0.8rem;
   border: none;
   outline: none;
