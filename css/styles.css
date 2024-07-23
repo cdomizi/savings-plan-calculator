@@ -47,8 +47,7 @@ main {
 }
 
 .form-input-box {
-  display: flex;
-  align-items: center;
+  display: inline-block;
   overflow: hidden;
   border: 1px solid var(--secondary-light);
   border-radius: 0.4rem;
@@ -56,7 +55,6 @@ main {
 }
 
 .form-field input {
-  /* flex-grow: 1; */
   padding: 0.8rem;
   border: none;
   outline: none;
