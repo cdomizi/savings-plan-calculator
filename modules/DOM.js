@@ -10,7 +10,7 @@ const createDetailsSection = (date, remainingTerm, months) => {
   removeOldDetailsSection();
 
   const detailsSection = document.querySelector("#details-section");
-  
+
   // Add title
   const heading = document.createElement("h2");
   heading.setAttribute("class", "details-section-header");
@@ -54,7 +54,7 @@ const createErrorSection = () => {
   removeOldDetailsSection();
 
   const detailsSection = document.querySelector("#details-section");
-  
+
   const heading = document.createElement("h2");
   heading.setAttribute("class", "details-section-header");
   heading.setAttribute("class", "details-section-header-error");
@@ -71,27 +71,27 @@ const createErrorSection = () => {
 const highlightInvalidInput = (event) => {
   const formData = new FormData(event.target);
   const formPayload = Object.fromEntries(formData);
-  
+
   for (const field in formPayload) {
     if (Object.hasOwnProperty.call(formPayload, field)) {
-
       const input = document.querySelector(`input[id='${field}']`);
       if (!input.checkValidity()) {
         input.closest(".form-field").appendChild(
           Object.assign(document.createElement("span"), {
             className: "validation-error-message",
             textContent: input.validationMessage,
-          }),
+          })
         );
-        input.parentNode.style.border = "1px solid red";
+        input.parentNode.style.border = "1px solid var(--error)";
       }
     }
-  };
+  }
 };
 
 const removeFormErrorMessages = () => {
-  const validationErrorMessages =
-    document.querySelectorAll(".validation-error-message");
+  const validationErrorMessages = document.querySelectorAll(
+    ".validation-error-message"
+  );
 
   if (validationErrorMessages) {
     // Remove error messages
@@ -99,10 +99,9 @@ const removeFormErrorMessages = () => {
 
     // Reset input border color
     document.querySelectorAll(".form-field input").forEach((element) => {
-      element.parentNode.style.border = "1px solid lightgray";
+      element.parentNode.style.border = "1px solid var(--secondary-light)";
     });
   }
-
 };
 
 export {
@@ -110,5 +109,5 @@ export {
   createErrorSection,
   highlightInvalidInput,
   removeFormErrorMessages,
-  removeOldDetailsSection
+  removeOldDetailsSection,
 };

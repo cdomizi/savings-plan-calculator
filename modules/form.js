@@ -37,10 +37,11 @@ const handleFormSubmit = (formPayload) => {
   const { goalBalance, monthlyContribution, initialDeposit } = formPayload;
 
   // Validate form payload
-  if (checkIsPositiveInteger(goalBalance)
-      && checkIsPositiveInteger(monthlyContribution)
-      && checkIsPositiveIntegerOrZero(initialDeposit)) {
-
+  if (
+    checkIsPositiveInteger(goalBalance) &&
+    checkIsPositiveInteger(monthlyContribution) &&
+    checkIsPositiveIntegerOrZero(initialDeposit)
+  ) {
     // Calculate months
     const months = getMonthsToGoalBalance({
       goalBalance,
@@ -59,17 +60,17 @@ const handleFormSubmit = (formPayload) => {
     createDetailsSection(formattedDate, remainingTerm, months);
 
     // Blur all form inputs (keyboard disappears on mobile)
-    Array.from(document.querySelectorAll('input')).forEach((el) => {
-      el.blur();
+    Array.from(document.querySelectorAll("input")).forEach((element) => {
+      element.blur();
     });
   } else {
     // Create error section on invalid data
     createErrorSection();
-  };
+  }
 
   // Scroll to details section
   document.querySelector("#details-section").scrollIntoView({
-    behavior: "smooth"
+    behavior: "smooth",
   });
 };
 
@@ -81,12 +82,12 @@ const onFormSubmit = (event) => {
     // Serialize form data
     const formData = new FormData(event.target);
     const formPayload = Object.fromEntries(formData);
-  
+
     // Handle form data
     handleFormSubmit(formPayload);
   } else {
     highlightInvalidInput(event);
-  };
+  }
 };
 
 const onFormReset = () => {
@@ -94,4 +95,3 @@ const onFormReset = () => {
 };
 
 export { onFormReset, onFormSubmit };
-
