@@ -68,10 +68,7 @@ const createErrorSection = () => {
 };
 
 // Show error on invalid form input
-const highlightInvalidInput = (event) => {
-  const formData = new FormData(event.target);
-  const formPayload = Object.fromEntries(formData);
-
+const highlightInvalidInput = (formPayload) => {
   for (const field in formPayload) {
     if (Object.hasOwnProperty.call(formPayload, field)) {
       const input = document.querySelector(`input[id='${field}']`);

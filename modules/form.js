@@ -2,21 +2,21 @@ import {
   addMonthsToDate,
   getMonthsToGoalBalance,
   getRemainingTerm,
-} from "./calculator.js";
+} from "./calculatorService.js";
+import {
+  checkIsPositiveInteger,
+  checkIsPositiveIntegerOrZero,
+  formatDate,
+} from "./helpers.js";
 import {
   createDetailsSection,
   createErrorSection,
   highlightInvalidInput,
   removeFormErrorMessages,
   removeOldDetailsSection,
-} from "./DOM.js";
-import {
-  checkIsPositiveInteger,
-  checkIsPositiveIntegerOrZero,
-  formatDate,
-} from "./helpers.js";
+} from "./ui.js";
 
-const checkIsFormValid = (event) => {
+const validateForm = (event) => {
   // Remove form validation error messages if existing
   removeFormErrorMessages();
 
@@ -75,18 +75,18 @@ const handleFormSubmit = (formPayload) => {
 };
 
 const onFormSubmit = (event) => {
+  // Serialize form data
+  const formData = new FormData(event.target);
+  const formPayload = Object.fromEntries(formData);
+
   // Validate form
-  const isFormValid = checkIsFormValid(event);
+  const isFormValid = validateForm(event);
 
   if (isFormValid) {
-    // Serialize form data
-    const formData = new FormData(event.target);
-    const formPayload = Object.fromEntries(formData);
-
     // Handle form data
     handleFormSubmit(formPayload);
   } else {
-    highlightInvalidInput(event);
+    highlightInvalidInput(formPayload);
   }
 };
 
